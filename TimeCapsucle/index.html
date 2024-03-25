@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charest="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Dream</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/laf6orl.css">
+</head>
+
+<body>
+    <div class="title">
+        <p>Welcome to my Dream</p>
+    </div>
+
+    <div id="container">
+        <a class="gif gif1" href="entry1.html" target="_blank">
+            <img class="entry1" src="butterfly.gif" alt="entry1">
+        </a>
+        <a class="gif gif2" href="entry1.html" target="_blank">
+            <img class="entry2" src="butterfly.gif" alt="entry2">
+        </a>
+        <a class="gif gif3" href="entry1.html" target="_blank">
+            <img class="entry3" src="butterfly.gif" alt="entry3">
+        </a>
+        <a class="gif gif4" href="entry1.html" target="_blank">
+            <img class="entry4" src="butterfly.gif" alt="entry4">
+        </a>
+        <a class="gif gif5" href="entry1.html" target="_blank">
+            <img class="entry5" src="butterfly.gif" alt="entry5">
+        </a>
+        <a class="gif gif6" href="entry6.html" target="_blank">
+            <img class="entry6" src="butterfly.gif" alt="entry6">
+        </a>
+        <a class="gif gif7" href="entry1.html" target="_blank">
+            <img class="entry7" src="butterfly.gif" alt="entry7">
+        </a>
+        <a class="gif gif8" href="entry1.html" target="_blank">
+            <img class="entry8" src="butterfly.gif" alt="entry8">
+        </a>
+        <a class="gif gif9" href="entry1.html" target="_blank">
+            <img class="entry9" src="butterfly.gif" alt="entry9">
+        </a>
+        <a class="gif gif10" href="entry10.html" target="_blank">
+            <img class="entry10" src="butterfly.gif" alt="entry10">
+        </a>
+    </div>
+    
+    <script>
+        var gifs = document.querySelectorAll('.gif');
+    
+        gifs.forEach(function(gif) {
+            gif.addEventListener('mouseover', function() {
+                gif.style.transform = 'scale(1.2)';
+            });
+    
+            gif.addEventListener('mouseout', function() {
+                gif.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+* {
+    padding: 0;
+    margin: 0;
+} 
+
+body{
+    background-image:url("background.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-position: top left;
+    cursor: url("plane.PNG"), auto;
+
+
+}
+.title{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+}
+p{
+    /* color: rgb(255, 190, 213); */
+    position: relative;
+    color: #E72A63;
+    text-shadow: -1px -1px 0 #FFCDDF, 1px -1px 0 #FFCDDF, -1px 1px 0 #FFCDDF, 1px 1px 0 #FFCDDF;
+    font-size: 50px;
+    font-family: "sarina", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 20px;
+    
+}
+#container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gif {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.entry1 {
+    width: 100%;
+    transform: rotate(-90deg);
+
+}
+
+.gif1 {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M.18,115.9s141.46,55.88,176.39,178.13,82.08,211.31,232.27,237.51,246.24-125.74,213.06-241c0,0-106.53-89.07-164.16-214.81S129.42,19.85,129.42,19.85");
+    animation: move1 6000ms infinite alternate ease-in-out;
+    width: 200px;
+    height: 200px;
+  }
+  
+  @keyframes move1 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+.entry2 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif2 {
+    position: absolute;
+    top:10%;
+    left: 10%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M242.99,526.13s-218.3,5.24-235.76-172.89C-10.23,175.1.25,131.44,112.02,51.11s293.39,26.2,324.83,82.08,179.88,181.62,333.56,57.63S759.93.46,759.93.46");
+  animation: move2 10000ms infinite alternate ease-in-out;
+    width: 100px;
+    height: 100px;
+  }
+  @keyframes move2 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+
+
+.entry3 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif3 {
+    position: absolute;
+    top:10%;
+    right: 40%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M.15,26.8s200.83-64.62,340.55,8.73,99.54,284.66,99.54,284.66c0,0,5.35,125.74-217.37,130.98");
+    animation: move3 6000ms infinite alternate ease-in-out;
+    width: 80px;
+    height: 80px;
+  }
+  @keyframes move3 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+
+
+  .entry4 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif4 {
+    position: absolute;
+    bottom:40%;
+    left: 10%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M.15,26.8s200.83-64.62,340.55,8.73,99.54,284.66,99.54,284.66c0,0,5.35,125.74-217.37,130.98");
+  animation: move4 10000ms infinite alternate ease-in-out;
+    width: 60px;
+    height: 60px;
+  }
+  @keyframes move4 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+
+
+  .entry5 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif5 {
+    position: absolute;
+    top:10%;
+    left: 40%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M562.64,188.62S410.71-50.63,190.66,10.49C-29.38,71.62,2.05,246.26,2.05,246.26c0,0,249.73,288.15,448.82,197.34s254.97,284.66,45.41,241");
+  animation: move5 15000ms infinite alternate ease-in-out;
+    width: 150px;
+    height: 150px;
+  }
+  @keyframes move5 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  .entry6 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif6 {
+    position: absolute;
+    top:10%;
+    left: 10%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M310.86.5S15.72,23.2,1.74,187.36s94.31,286.41,94.31,286.41");
+  animation: move6 10000ms infinite alternate ease-in-out;
+    width: 230px;
+    height: 230px;
+  }
+  @keyframes move6 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  .entry7 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif7 {
+    position: absolute;
+    top:10%;
+    left: 30%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M33.5.22s-118.75,235.76,94.31,274.18,195.6-19.21,220.05-137.09c24.45-117.88,260.21-74.22,260.21-74.22,0,0,178.13,117.01,85.57,247.99s89.07,172.89,89.07,172.89");
+  animation: move7 7000ms infinite alternate ease-in-out;
+    width: 90px;
+    height: 90px;
+  }
+  @keyframes move7 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  .entry8 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif8 {
+    position: absolute;
+    bottom:10%;
+    right: 10%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M.03,371.75s274.18-17.46,293.39-162.41C312.64,64.38,558.88,5.01,558.88,5.01c0,0,275.93-57.63,391.19,239.26");
+  animation: move8 8000ms infinite alternate ease-in-out;
+    width: 100px;
+    height: 100px;
+  }
+  @keyframes move8 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  .entry9 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif9 {
+    position: absolute;
+    top:10%;
+    right: 10%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M.43.25s146.7,247.99,340.55,123.99C534.83.25,688.51,79.61,688.51,79.61");
+  animation: move9 10000ms infinite alternate ease-in-out;
+    width: 120px;
+    height: 120px;
+  }
+  @keyframes move9 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  .entry10 {
+    width: 100%;
+    transform: rotate(-90deg);
+}
+.gif10 {
+    position: absolute;
+    bottom:10%;
+    left: 10%;
+    transform: translate(-50% , -50%);
+    offset-path: path("M.43.25s146.7,247.99,340.55,123.99C534.83.25,688.51,79.61,688.51,79.61");
+  animation: move10 10000ms infinite alternate ease-in-out;
+    width: 190px;
+    height: 190px;
+  }
+  @keyframes move10 {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+/* Define additional animations for other gifs here */
+
+@keyframes moveGif1 {
+    0% { transform: translate(-50%, -50%); }
+    25% { transform: translate(0, 0); }
+    50% { transform: translate(50%, -50%); }
+    75% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+@keyframes moveGif2 {
+    0% { transform: translate(-50%, -50%); }
+    25% { transform: translate(0, 0); }
+    50% { transform: translate(50%, 50%); }
+    75% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}

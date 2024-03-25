@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charest="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Poem of Dream</title>
+    <link rel="stylesheet" href="https://use.typekit.net/laf6orl.css">
+    <style>
+        
+        * {
+            padding: 0;
+            margin: 0; 
+        } 
+
+        body{
+            background-image: url("poembac.jpg");
+            background-size: cover; 
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-position: top left;
+    cursor: url("cursor.png"), auto;
+        }
+        section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+section .text{
+    position: relative;
+    color: #E72A63;
+    font-family: "sarina", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* max-width: 800px; */
+    user-select: none;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+section .text span{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+section .text span.active{
+    animation: smoke 2s linear forwards;
+    transform-origin: bottom;
+}
+
+.show{
+    animation: show-letter .5s linear forwards;
+}
+
+@keyframes show-letter{
+    0%{
+        opacity: 0;
+        transform: rotate(0deg) scale(1);/*可注释*/
+    }
+    50%{
+        opacity: 0.5;
+        transform: rotate(45deg) scale(1.1);
+    }
+
+    100%{
+        opacity: 1;
+        transform: rotate(0deg) scale(1);/*可注释*/
+    }
+}
+
+@keyframes smoke{
+    0%{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    }
+    100%{
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(300px) translateY(-300px) rotate(720deg) scale(4);
+    }
+}
+
+
+
+        
+        footer {
+    margin: 50px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button {
+    width: 100px; /* 调整按钮宽度 */
+    height: 100px; /* 调整按钮高度 */
+    /* border-radius: 15px; */
+    background-image: url('button.png'); /* 设置背景图像 */
+    background-size: contain; /* 图像大小自适应按钮 */
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* 移除链接默认样式 */
+    color: rgb(190, 0, 0);
+    font-family: "sarina", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px; /* 设置文本大小 */
+    transition: background-color 0.3s, transform 0.3s; /* 添加过渡效果 */
+}
+.button-container {
+    margin-right: 20px; /* 调整按钮容器的右边距 */
+    margin-left: 20px; /* 调整按钮容器的左边距 */
+}
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* 悬停时更改背景颜色 */
+    transform: translateY(-3px); /* 悬停时向上移动按钮 */
+}
+
+.button:active {
+    transform: translateY(1px); /* 点击时向下移动按钮 */
+    box-shadow: none; /* 去除阴影效果 */
+}
+
+
+    </style>
+    </head>
+    <body>
+        <section>
+            <div>
+            <p class="text">
+                I Like For You To Be Still
+            </p>
+            <p class="text">
+                Pablo Neruda
+            </p>
+            <p class="text">
+                I like for you to be still
+            </p>
+            <p class="text">
+                It is as though you are absent
+            </p>
+            <p class="text">
+                And you hear me from far away
+            </p>
+            <p class="text">
+                And my voice does not touch you
+            </p>
+            <p class="text">
+                It seems as though your eyes had flown away
+            </p> 
+            <p class="text">
+                And it seems that a kiss had sealed your mouth
+            </p> 
+            <p class="text">
+                As all things are filled with my soul
+            </p> 
+            <p class="text">
+                You emerge from the things
+            </p> 
+            <p class="text">
+                Filled with my soul
+            </p> 
+            <p class="text">
+                You are like my soul
+            </p> 
+            <p class="text">
+                A butterfly of dream
+            </p>
+            <p class="text">
+                And you are like the word: Melancholy
+            </p>
+        </div>
+        </section>
+
+    <footer>
+        <div class="button-container previous">
+            <a href="index.html" class="button">
+              <div class="change">Back</div>
+            </a>
+        </div>
+        <div class="button-container next">
+            <a href="entry1.html" class="button">
+              <div class="change">Next</div>
+            </a>
+        </div>
+    </footer>
+    <script>
+       const text=document.querySelectorAll('.text');
+    text.forEach((element)=>{
+        element.innerHTML=element.textContent.replace(/\S/g,"<span>$&</span>")
+
+    });
+    
+    let goBackTime=2;
+
+    const letters = document.querySelectorAll("span");
+    for(let i=0;i<letters.length;i++){
+        letters[i].addEventListener('mouseover',function(){
+            letters[i].classList.add('active')
+            letters[i].classList.add('active'+i)
+            
+            setTimeout(()=>{
+                let letter = document.querySelector('.active'+i)
+                letter.classList.remove("active");
+                letter.classList.add("show");
+            },goBackTime*1000)
+
+            
+        })
+    }
+    </script>
+
+
+</body>
+</html>

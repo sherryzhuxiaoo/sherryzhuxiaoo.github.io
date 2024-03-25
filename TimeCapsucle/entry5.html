@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charest="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Butterfly in my eyes</title>
+    <link rel="stylesheet" href="https://use.typekit.net/laf6orl.css">
+    <style>
+        
+        * {
+            padding: 0;
+            margin: 0; 
+        } 
+
+        body{
+            background-color: rgb(3, 24, 45);
+        }
+
+        
+        footer {
+    margin: 50px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button {
+    width: 100px; /* 调整按钮宽度 */
+    height: 100px; /* 调整按钮高度 */
+    /* border-radius: 15px; */
+    background-image: url('button.png'); /* 设置背景图像 */
+    background-size: contain; /* 图像大小自适应按钮 */
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* 移除链接默认样式 */
+    color: rgb(190, 0, 0);
+    font-family: "sarina", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px; /* 设置文本大小 */
+    transition: background-color 0.3s, transform 0.3s; /* 添加过渡效果 */
+}
+.button-container {
+    margin-right: 20px; /* 调整按钮容器的右边距 */
+    margin-left: 20px; /* 调整按钮容器的左边距 */
+}
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* 悬停时更改背景颜色 */
+    transform: translateY(-3px); /* 悬停时向上移动按钮 */
+}
+
+.button:active {
+    transform: translateY(1px); /* 点击时向下移动按钮 */
+    box-shadow: none; /* 去除阴影效果 */
+}
+
+
+    </style>
+    </head>
+    <body>
+
+    <footer>
+        <div class="button-container previous">
+            <a href="index.html" class="button">
+              <div class="change">Back</div>
+            </a>
+        </div>
+        <div class="button-container next">
+            <a href="entry6.html" class="button">
+              <div class="change">Next</div>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>

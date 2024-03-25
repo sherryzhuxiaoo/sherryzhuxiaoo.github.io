@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charest="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Butterfly in my eyes</title>
+    <link rel="stylesheet" href="https://use.typekit.net/laf6orl.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <style>
+        
+        * {
+            padding: 0;
+            margin: 0; 
+        } 
+
+        body{
+            background-color: rgb(3, 24, 45);
+        }
+        #container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .gif {
+
+            position: absolute;
+            width:90%;
+            height: 90%;
+            cursor: pointer;
+        }
+    
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(190, 0, 0);
+            font-size: 24px;
+            font-family: "sarina", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-weight: bold;
+            text-align: center;
+            pointer-events: none; /* 防止文字被点击 */
+        }
+
+        
+        footer {
+    margin: 50px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button {
+    width: 100px; /* 调整按钮宽度 */
+    height: 100px; /* 调整按钮高度 */
+    /* border-radius: 15px; */
+    background-image: url('button.png'); /* 设置背景图像 */
+    background-size: contain; /* 图像大小自适应按钮 */
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* 移除链接默认样式 */
+    color: rgb(190, 0, 0);
+    font-family: "sarina", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px; /* 设置文本大小 */
+    transition: background-color 0.3s, transform 0.3s; /* 添加过渡效果 */
+}
+.button-container {
+    margin-right: 20px; /* 调整按钮容器的右边距 */
+    margin-left: 20px; /* 调整按钮容器的左边距 */
+}
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* 悬停时更改背景颜色 */
+    transform: translateY(-3px); /* 悬停时向上移动按钮 */
+}
+
+.button:active {
+    transform: translateY(1px); /* 点击时向下移动按钮 */
+    box-shadow: none; /* 去除阴影效果 */
+}
+
+
+    </style>
+    </head>
+    <body>
+    <div id="container">
+        <img id="gif1" class="gif" src="gif1.gif" alt="第一个 GIF">
+        <img id="gif2" class="gif" src="gif2.gif" alt="第二个 GIF" style="display: none;">
+        <img id="gif3" class="gif" src="gif3.gif" alt="第三个 GIF" style="display: none;">
+        <img id="gif4" class="gif" src="gif4.gif" alt="第四个 GIF" style="display: none;">
+        <div id="text1" class="text">In my Dream</div>
+        <div id="text3" class="text"style="display: none;">In my eyes</div>
+    </div>
+    <footer>
+        <div class="button-container previous">
+            <a href="index.html" class="button">
+              <div class="change">Back</div>
+            </a>
+        </div>
+        <div class="button-container next">
+            <a href="https://sherryzhuxiaoo.github.io/harmonic-collection-/entries/entry-5/index.html" class="button">
+              <div class="change">Next</div>
+            </a>
+        </div>
+    </footer>
+    <script>
+        var gif1 = document.getElementById('gif1');
+        var gif3 = document.getElementById('gif3');
+        var gif2 = document.getElementById('gif2');
+        var gif4 = document.getElementById('gif4');
+        var text1 = document.getElementById('text1');
+        var text3 = document.getElementById('text3');
+    
+        gif1.addEventListener('click', function() {
+            gif1.style.display = 'none';
+            gif2.style.display = 'block';
+            text1.style.display = 'none';
+        });
+        gif2.addEventListener('click', function() {
+            gif2.style.display = 'none';
+            gif3.style.display = 'block';
+            text1.style.display = 'none';
+            text3.style.display = 'block';
+        });
+        gif3.addEventListener('click', function() {
+            gif3.style.display = 'none';
+            gif4.style.display = 'block';
+            text3.style.display = 'none';
+        });
+        gif4.addEventListener('click', function() {
+            gif4.style.display = 'none';
+            gif1.style.display = 'block';
+            text3.style.display = 'none';
+            text1.style.display = 'block';
+        });
+    </script>
+
+
+</body>
+</html>
