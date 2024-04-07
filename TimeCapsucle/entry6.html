@@ -20,6 +20,21 @@
        display: block;
   height:100vh;
 }
+.hover-trigger {
+        position: fixed;
+        top: 0;
+ 
+        width: 30px; /* 鼠标可触发的宽度 */
+        height: 100vh;
+        background-color: transparent; /* 可见但透明 */
+        z-index: 9999; /* 使其显示在页面最上层 */
+    }
+    .hover-trigger.left {
+        left: 0; 
+    }
+    .hover-trigger.right {
+        right: 0; 
+    }
 #v0 {
   position: fixed;
   top: 50%;
@@ -31,69 +46,42 @@ p font-family helvetica {
   font-size: 24px;
 }
 
-footer {
-    margin: 50px 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .button {
-    width: 100px; /* 调整按钮宽度 */
-    height: 100px; /* 调整按钮高度 */
-    /* border-radius: 15px; */
-    background-image: url('button.png'); /* 设置背景图像 */
-    background-size: contain; /* 图像大小自适应按钮 */
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none; /* 移除链接默认样式 */
-    color: rgb(190, 0, 0);
-    font-family: "sarina", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 20px; /* 设置文本大小 */
-    transition: background-color 0.3s, transform 0.3s; /* 添加过渡效果 */
-}
-.button-container {
-    margin-right: 20px; /* 调整按钮容器的右边距 */
-    margin-left: 20px; /* 调整按钮容器的左边距 */
-}
-.button:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* 悬停时更改背景颜色 */
-    transform: translateY(-3px); /* 悬停时向上移动按钮 */
-}
 
-.button:active {
-    transform: translateY(1px); /* 点击时向下移动按钮 */
-    box-shadow: none; /* 去除阴影效果 */
-}
 
     </style>
 </head>
 <body>
+  <div class="hover-trigger left" id="hoverTriggerLeft"></div>
+        <div class="hover-trigger" id="hoverTriggerRight"></div>
     <div id="set-height"></div>
     <p id="time"></p>
     <video id="v0" tabindex="0" autobuffer="autobuffer" preload="preload">
       <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="AMoment.mp4"></source>
     </video>
 
-    <footer>
-      <div class="button-container previous">
-          <a href="index.html" class="button">
-            <div class="change">Back</div>
-          </a>
-      </div>
-      <div class="button-container next">
-          <a href="entry9.html" class="button">
-            <div class="change">Next</div>
-          </a>
-      </div>
-  </footer>
-    
-    
 
+    
+    
+<script>
+  window.addEventListener('click', function(event) {
+            // 获取鼠标当前的横坐标
+            var mouseX = event.clientX;
+            // 获取屏幕宽度
+            var screenWidth = window.innerWidth;
+
+            // 如果鼠标横坐标在屏幕最右边20px范围内，并且点击右键，则跳转到下一个网页
+            if (mouseX >= (screenWidth - 30) && event.button === 0) {
+                // 跳转到下一个网页
+                window.location.href = 'entry9.html';
+            }
+
+            // 如果鼠标横坐标在屏幕最左边20px范围内，并且点击左键，则跳转到上一个网页
+            if (mouseX <= 30 && event.button === 0) {
+                // 跳转到上一个网页
+                window.location.href = 'entry5.html';
+            }
+        });
+</script>
 <script type="text/javascript">
   var frameNumber = 0, // start video at frame 0
     // lower numbers = faster playback
