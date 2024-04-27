@@ -1,0 +1,190 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Clock</title>
+</head>
+
+<body>
+    <div class="upload-button">
+        <label for="file-upload-button" class="custom-file-upload">
+            Upload
+        </label>
+        <input id="file-upload-button" type="file" accept="image/*" onchange="handleFileUpload(event)">
+    </div>
+    <div class="clock">
+
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="dot">
+            <div class="dots"></div>
+        </div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+    <script>
+        var clock = document.querySelector(".clock");
+        var dotAll = document.querySelectorAll(".dot");
+        var hour = document.querySelector(".hour");
+        var minute = document.querySelector(".minute");
+        var second = document.querySelector(".second");
+
+        let dotIndex = 0;
+
+        let uploadArr = []
+
+        function handleClock() {
+            setInterval(() => {
+                let d = new Date();
+                let htime = d.getHours();
+                let mtime = d.getMinutes();
+                let stime = d.getSeconds();
+
+                // console.clear()
+                console.log(htime, mtime, stime);
+
+                let hrotation = 30 * htime + mtime / 2;
+                let mrotation = 6 * mtime;
+                let srotation = 6 * stime;
+
+                hour.style.transform = `rotate(${hrotation}deg)`;
+                minute.style.transform = `rotate(${mrotation}deg)`;
+                second.style.transform = `rotate(${srotation}deg)`;
+
+                let dotIndex = Math.floor((hrotation) / (360 / 12))
+                dotIndex = dotIndex >= 12 ? dotIndex - 13 : dotIndex - 1
+
+                dotAll.forEach(dot => {
+                    dot.querySelector('.dots').style.backgroundColor = '#ccc'
+                })
+
+                dotAll[dotIndex].querySelector('.dots').style.backgroundColor = 'aqua'
+
+                // console.log(htime, Math.ceil(360 /( hrotation / 2)))
+
+                let uploadAll = document.querySelectorAll('.upload')
+                // console.log((htime) * 30, (htime + 1) * 30);
+                uploadArr.forEach((file, i) => {
+                     if (file.targetRotation >= (htime) * 30 && file.targetRotation <= (htime + 1) * 30) {
+                        console.log('亮色');
+                        // console.log();
+                         uploadAll[i].classList = "upload"
+                    } else {
+                        console.log('暗色');
+                         uploadAll[i].classList = "upload gray"
+                    }
+                    console.log(file.targetRotation);
+                })
+
+            }, 1000);
+        }
+
+        handleClock()
+
+
+        // 上传图片
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return; // 如果没有选择文件，则不执行任何操作
+
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                let base64String = e.target.result.split(',')[1]
+                let parent = document.createElement('div');
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.width = '10vw'; // 设置图片大小
+                img.style.height = '10vw'; // 设置图片大小
+                const currentTime = new Date();
+                let currentHour = currentTime.getHours();
+                let currentMinutes = currentTime.getMinutes();
+                const targetRotation = 30 * currentHour + currentMinutes / 2;
+                parent.appendChild(img);
+                clock.appendChild(parent);
+                parent.classList.add("upload");
+
+                // 根据当前小时计算目标上传位置的索引
+                parent.style.transform = "translate(-50%) rotate(" + targetRotation + "deg)";
+                img.style.transform = "rotate(" + -targetRotation + "deg)";
+                let targetIndex = currentHour;
+                if (currentHour > 12) {
+                    targetIndex -= 12;
+                } else if (currentHour === 0) {
+                    targetIndex = 12; // 对应于12小时位置
+                }
+
+                uploadArr.push({
+                    file: base64String,
+                    targetRotation
+                })
+
+                console.log(uploadArr);
+
+                // 在目标上传位置添加图片元素
+                // const targetUploadDiv = document.querySelectorAll('.upload')[targetIndex];
+                // targetUploadDiv.innerHTML = ''; // 清除目标位置上的任何现有内容
+                // targetUploadDiv.appendChild(img); // 将上传的图片附加到目标位置
+
+                // 将图片的 base64 编码存储在本地存储中
+                // localStorage.setItem(`upload-${targetIndex}`, e.target.result);
+                // console.log(localStorage.getItem(`upload-${targetIndex}`, e.target.result));
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+<!-- let d = new Date();
+let htime =3;
+let mtime = 23;
+let hrotation = 30*htime + mtime/2;
+let parent = document.createElement("div");
+parent.classList.add("upload");
+parent.style.transform = ` translate(-50%) rotate(${hrotation}deg)`;
+let img = new Image();
+img.classList.add("upload");
+img.style.transform = `rotate(${-hrotation}deg)`;
+parent.appenChild(img); -->

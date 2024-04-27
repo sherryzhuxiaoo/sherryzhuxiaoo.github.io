@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Clock</title>
+</head>
+<body>
+    <div class="clock">
+
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="upload"><img/></div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+
+        <!-- End of positions for uploading images -->
+    </div>
+    <script>
+       var hour = document.querySelector(".hour");
+        var minute = document.querySelector(".minute");
+        var second = document.querySelector(".second");
+        setInterval(() => {
+    let d = new Date();
+    let htime = d.getHours();
+    let mtime = d.getMinutes();
+    let stime = d.getSeconds();
+
+    let hrotation = 30*htime + mtime/2;
+    let mrotation = 6*mtime;
+    let srotation = 6*stime;
+
+    hour.style.transform = `rotate(${hrotation}deg)`;
+    minute.style.transform = `rotate(${mrotation}deg)`;
+    second.style.transform = `rotate(${srotation}deg)`;
+
+}, 1000);
+
+        
+    
+   
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return; // If no file is selected, do nothing
+    
+            const reader = new FileReader();
+    
+            reader.onload = function (e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.width = '20%'; // Set image size to 20%
+                event.target.parentElement.appendChild(img);
+            }
+    
+            reader.readAsDataURL(file);
+        }
+    
+        // // Attach event listeners to upload divs
+        // const uploadDivs = document.querySelectorAll('.upload');
+        // uploadDivs.forEach((div, index) => {
+        //     div.innerHTML = `<label for="file-upload${index}" class="custom-file-upload">
+        // Upload your meme</label><input id="file-upload${index}" type="file" accept="image/*" onchange="handleFileUpload(event)">`;
+        // });
+        function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return; // If no file is selected, do nothing
+
+    const reader = new FileReader();
+    const targetUploadDiv = document.querySelectorAll(`.upload`);
+
+    reader.onload = function (e) {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.width = '50px'; // Set image size to 35%
+        const currentTime = new Date();
+        let currentHour = currentTime.getHours();
+        const targetRotation = 30 * currentHour; // Calculate rotation for the current hour
+        console.log(currentHour,targetUploadDiv);
+        if (currentHour > 12) {
+            currentHour -= 12;
+        } else if(currentHour==0){
+            currentHour=12;
+            
+        }
+        targetUploadDiv[currentHour].innerHTML = ''; 
+        targetUploadDiv[currentHour].appendChild(img); 
+
+    }
+
+    reader.readAsDataURL(file);
+}
+let d = new Date();
+let htime =3;
+let mtime = 23;
+let hrotation = 30*htime + mtime/2;
+let parent = document.createElement("div");
+parent.classList.add("upload");
+parent.style.transform = ` translate(-50%) rotate(${hrotation}deg)`;
+let img = new Image();
+img.classList.add("upload");
+img.style.transform = `rotate(${-hrotation}deg)`;
+parent.appenChild(img);
+
+    </script>
+</body>
+</html>
